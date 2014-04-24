@@ -48,6 +48,7 @@ void eleRemove(Ele* lEle, Container* iContainer) {
 
 	if(lastEle != NULL) {
 		lastEle->next = it->next;
+		free(it);
 	}
 }
 

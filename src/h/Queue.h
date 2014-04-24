@@ -22,7 +22,6 @@ Queue* createQueue();
 void queuePush(Queue* queue, Container* iContainer);
 Container* queuePop(Queue* queue);
 int queueIsEmpty(Queue* queue);
-void printQueue(Queue* queue);
-void queueTest();
+void queuePrint(Queue* queue);
 
 #endif /* QUEUE_H_ */

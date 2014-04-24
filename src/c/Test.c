@@ -16,7 +16,7 @@ void testStack() {
 		Container* myC = containerCreate(i);
 		stackPush(myStack, myC);
 	}
-	printStack(myStack);
+	stackPrint(myStack);
 	printf("\n");
 
 	printf("------Container* stackPop(Stack* stack) ------\n");
@@ -25,7 +25,7 @@ void testStack() {
 		printf("Container popped: ");
 		containerPrint(stackPop(myStack));
 	}
-	printStack(myStack);
+	stackPrint(myStack);
 	printf("\n");
 
 	printf("------void stackPush(Stack* stack, Container *iContainer)------\n");
@@ -34,7 +34,7 @@ void testStack() {
 		Container* node = containerCreate(i);
 		stackPush(myStack, node);
 	}
-	printStack(myStack);
+	stackPrint(myStack);
 	printf("\n");
 
 	printf("------Container* stackContains(Stack* stack, Container* cContainer)------\n");
@@ -51,7 +51,56 @@ void testStack() {
 		printf("/* Removing Element with value %d */\n", i);
 		Container* myC = containerCreate(i);
 		stackRemove(myStack, myC);
-		printStack(myStack);
+		stackPrint(myStack);
+		free(myC);
+	}
+	printf("\n");
+}
+
+void testLinkedList() {
+	LinkedList* myLinkedList = createLinkedlist();
+
+	printf("------void linkedlistAdd(LinkedList* linkedlist, Container* iContainer)------\n");
+	printf("/* add 10 Elements to LinkedList */\n");
+	for(int i=0; i<10; i++) {
+		Container* myC = containerCreate(i);
+		linkedlistAdd(myLinkedList, myC);
+	}
+	linkedlistPrint(myLinkedList);
+	printf("\n");
+
+	printf("------void linkedlistRemove(LinkedList* linkedList, Container* rContainer)------\n");
+	printf("/* removing 10 Elements from LinkedList */\n");
+	for(int i=0; i<10; i++) {
+		Container* myC = containerCreate(i);
+		linkedlistRemove(myLinkedList, myC);
+	}
+	linkedlistPrint(myLinkedList);
+	printf("\n");
+
+	printf("------int linkedlistIsEmpty(LinkedList* linkedList)------\n");
+	printf("linkedlistIsEmpty(myLinkedList) returned %d\n", linkedlistIsEmpty(myLinkedList));
+	printf("\n\n");
+
+	printf("------LinkedList* linkedlistAddAll(LinkedList* linkedListA, LinkedList* linkedListB)------\n");
+	for(int i=0; i<10; i++) {
+		Container* myC = containerCreate(i);
+		linkedlistAdd(myLinkedList, myC);
+	}
+	LinkedList* myLinkedList2 = createLinkedlist();
+	for(int i=10; i<20; i++) {
+		Container* myC = containerCreate(i);
+		linkedlistAdd(myLinkedList2, myC);
+	}
+	linkedlistAddAll(myLinkedList, myLinkedList2);
+	linkedlistPrint(myLinkedList);
+	printf("\n");
+
+	printf("------Container* linkedlistContains(LinkedList* linkedList, Container* cContainer)------\n");
+	for(int i=0; i<20; i++) {
+		printf("/* Searching for Container with value %d */\n", i);
+		Container* myC = containerCreate(i);
+		containerPrint(linkedlistContains(myLinkedList, myC));
 		free(myC);
 	}
 	printf("\n");

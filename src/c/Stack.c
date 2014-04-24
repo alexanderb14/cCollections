@@ -23,7 +23,7 @@ void stackPush(Stack* stack, Container *iContainer) {
 }
 
 Container* stackPop(Stack* stack) {
-	//check if first element
+	//check if top is first element
 	if(stack->elements->next == NULL) {
 		Container* tempC = stack->elements->container;
 		stack->elements = NULL;
@@ -66,6 +66,8 @@ Container* stackContains(Stack* stack, Container* cContainer) {
 		}
 	}
 
+	free(itEle);
+
 	return NULL;
 }
 
@@ -85,8 +87,7 @@ Stack* stackAddAll(Stack* stackA, Stack* stackB) {
 
 	itEle = stackB->elements;
 	while(itEle != NULL) {
-		if(stackContains(stackA, itEle->container) == NULL)
-			stackPush(stackNew, itEle->container);
+		stackPush(stackNew, itEle->container);
 
 		if(itEle->next != NULL) {
 			itEle = itEle->next;
@@ -109,7 +110,7 @@ void stackRemove(Stack* stack, Container* rContainer) {
 	}
 }
 
-void printStack(Stack* stack) {
+void stackPrint(Stack* stack) {
 	printf("------Stack-----\n");
 
 	if(stack->elements != NULL) {

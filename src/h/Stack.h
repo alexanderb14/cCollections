@@ -25,6 +25,6 @@ int stackIsEmpty(Stack* queue);
 Container* stackContains(Stack* stack, Container* cContainer);
 Stack* stackAddAll(Stack* stackA, Stack* stackB);
 void stackRemove(Stack* stack, Container* rContainer);
-void printStack(Stack* stack);
+void stackPrint(Stack* stack);
 
 #endif /* STACK_H_ */

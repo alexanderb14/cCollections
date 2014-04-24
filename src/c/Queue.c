@@ -24,7 +24,11 @@ void queuePush(Queue* queue, Container* iContainer) {
 
 Container* queuePop(Queue* queue) {
 	Container* firstNode = queue->elements->container;
+
+	Ele* tempEle = queue->elements;
 	queue->elements = queue->elements->next;
+	free(tempEle);
+
 	return firstNode;
 }
 
@@ -36,7 +40,7 @@ int queueIsEmpty(Queue* queue) {
 	}
 }
 
-void printQueue(Queue* queue) {
+void queuePrint(Queue* queue) {
 	printf("------Queue-----");
 	elePrint(queue->elements);
 	printf("----------------");
