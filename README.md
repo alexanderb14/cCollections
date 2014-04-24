@@ -7,6 +7,7 @@ Progress
 - implemented
   - Stack
   - Queue
+  - LinkedList
 
 Usage
 ============
