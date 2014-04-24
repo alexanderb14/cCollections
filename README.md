@@ -2,9 +2,9 @@ cCollections
 ============
 the goal of this project is to provide dynamic data structures for C.
 
-Features
+Progress
 ============
-- implementation of
+- implemented
   - Stack
   - Queue
 
