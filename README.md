@@ -9,9 +9,6 @@ Progress
   - Stack
   - Queue
 
-- todo
-  - Set
-
 Usage
 ============
 for your specific data structure the following changes are necessary:
